@@ -6,6 +6,7 @@
     email: contact.email,
     phone_number: contact.country_code,
     created_at: contact.friendly_created_at,
+    updated_at: contact.friendly_updated_at,
     full_name: contact.full_name
   }
 end
