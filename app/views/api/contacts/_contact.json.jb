@@ -8,5 +8,7 @@
   created_at: contact.friendly_created_at,
   updated_at: contact.friendly_updated_at,
   full_name: contact.full_name,
-  bio: contact.bio
+  bio: contact.bio,
+  latitude: contact.latitude,
+  longitude: contact.longitude
 }
