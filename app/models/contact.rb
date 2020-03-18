@@ -2,6 +2,9 @@ class Contact < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email, format: {with: /\A[a-zA-Z@.]+\z/}
+
+  belongs_to :user
+  
   def friendly_created_at
     created_at.strftime("%d.%m.%y")
   end
