@@ -5,7 +5,9 @@ class Api::ContactsController < ApplicationController
   end
 
   def index
-    @contacts = current_user.contacts
+    # group = Group.find_by(name: params[:group_name])
+    # @contacts = group.where(user_id: current_user.id)
+    @contacts = Contact.all
     render 'index.json.jb'
   end
 
@@ -14,16 +16,15 @@ class Api::ContactsController < ApplicationController
       first_name: params[:first_name],
       middle_name: params[:middle_name],
       last_name: params[:last_name],
-      email: params[:email],
       phone_number: params[:phone_number],
       bio: params[:bio],
       address: params[:address],
-      user_id: current_user.id
+      # user_id: current_user.id
     )
     if @contact.save
       render 'show.json.jb'
     else
-      render json: {errors: @contact.errors.full_messages}
+      render json: {errors: @contact.errors.full_messages}, status: :unprocessable_entity
     end
   end
 
